@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-typescript-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-typescript-app
+  template:
+    metadata:
+      labels:
+        app: my-typescript-app
+    spec:
+      containers:
+        - name: my-typescript-app
+          image: my-typescript-app:latest
+          imagePullPolicy: Never #to run images on local disk          
+          ports:
+            - containerPort: 3000
